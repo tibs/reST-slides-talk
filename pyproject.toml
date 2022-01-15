@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "rest-slides-talk"
+version = "0.1.0"
+description = ""
+authors = ["Tibs <tibs@tonyibbs.co.uk>"]
+license = "Creative Commons Attribution-ShareAlike 4.0 International License"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

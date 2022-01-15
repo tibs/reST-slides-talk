@@ -9,6 +9,7 @@ History
 
 The talk was (will be) given at CamPUG_ on Tuesday 1st February 2022.
 
+,, Make this URL point to the appropriate meetup page when there is one
 .. _CamPUG: https://www.meetup.com/CamPUG/
 
 Stuff about what is here and how to (re)use it
