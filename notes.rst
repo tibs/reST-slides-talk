@@ -103,7 +103,9 @@ Why *not* make slides from a markup language?
   effect for explaining code, but is hard to describe in something like
   reStructuredText.
 
-  (Hmm. I wonder how hard..,)
+  (Hmm. I wonder how hard...)
+
+  (Also, there's the ability to do ``:hl_lines: 2 3 4`` within a ``.. code-block::``)
 
 * Design heavy slides
 
@@ -262,6 +264,28 @@ The example slide PDF (linked from rst2pdf.org) does show the "list items set
 a bit close". It's also an excellent example of "always make your test bigger
 than you think" - this is good advice for any slide set, and I'm not great at
 it...
+
+Problems:
+
+* styling improvements (list spacing)
+* tendency to generate an extra blank slide if text gets too near the end of a slide
+
+reStructuredText incompatibilies / extensions
+=============================================
+
+Some differences in directives.
+
+``.. code::`` (reStructuredText) or ``.. code-block::`` (sphinx) and ``..
+code-block::`` (rst2pdf, not quite the same as the one from sphinx, supports
+``hl_lines`` to dim the lines that are *not* listed)
+
+How ``.. notes::`` is treated / used
+
+How ``.. comments`` are treated / used (I *think* I remember one tool using
+comments for notes? Need to check.)
+
+
+Pygments or what?
 
 
 Special note: Jupyter Notebooks
