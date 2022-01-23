@@ -34,28 +34,113 @@ What we shall cover
 
 ...
 
+What are the traditional things to use?
+=======================================
+
+Obviously, I'm not the best person to ask
+
+All GUI...
+
+* Keynote (Apple, free with Mac OS)
+* Powerpoint (Microsoft, part of MS Office)
+* Impress (LibreOffice, so free)
+* Google Slides (part of the free Google Docs Editors suite) web based
+
+but there are lots of other programs out there, both free and not.
+
 Why make slides from a markup language?
 =======================================
 
-...
+* Familiarity:
 
+    * Editing text files. Which we mostly already know how to do.
+    * Using a familiar tool, just a text editor.
+
+* Good if you are used to typing, may be much faster to procude slides.
+* Very good if you can't use a mouse or other pointing device, as it is just text.
+* When generating the slides, enables one to concentrate on the text, rather
+  than how the text will look.
+* Version control
+* Fits into traditional toolchains (make and the like)
+* Just text files, so can search and so on
+
+* Keeps the slides relatively simple, which can be a good thing (it often is).
+
+  Note this doesn't mean no transitions (for instance), as that can be a
+  presentation engine thing, if you really want it.
+
+Don't ignore that "keeps things simple" point - it's very easy to go over the
+top with GUI slide making tools.
+
+Other things:
+
+* as it's just text, can include templating and process it - also including
+  things like ``cog`` to allow including actual programming examples and their
+  calculated output.
 
 Why *not* make slides from a markup language?
 =============================================
 
-...
+* Graphics heavy slides
+
+  If the graphics are the point of the slide, then markup, which just
+  "includes" images, may not be the best, as one is working at second hand
+  with the graphics
+
+  Example: graphs with highlighting that appears or changes on successive
+  slides. Using markup, these would need to be repeated (similar) images.
+
+  (although I have done this sort of thing)
+
+* Layout heavy slides
+
+  Complicated layout is probably beyond what the markup is designed to
+  produce. Just as one should move to another tool if reStructuredText is not
+  adequate for text, the same applies for slides.
+
+  For instance, slides which gradually reveal or hide parts of a body of
+  source code, while leaving the layout the same. This can be a very useful
+  effect for explaining code, but is hard to describe in something like
+  reStructuredText.
+
+  (Hmm. I wonder how hard..,)
+
+* Design heavy slides
+
+  For example, if a company has a particular design that needs adhering to, or
+  if close control is needed over the colour and appearance of text in
+  different parts of the slide.
+
+Just as when producing text documents, there are times when something like
+reStructuredText is appropriate, and times when TeX or some form of desktop
+publishing is more appropriate, sometimes one just needs Keynote to get the
+job done.
 
 Why reStructuredText?
 =====================
 
-...
+I want to use it because it's my favourite markup, and it's what I write
+without thinking. But that's hardly a good enough reason for other people.
 
-Special note: Jupyter Notebooks
-===============================
+So let's look first at why not reStructuredText:
 
-Doesn't really belong in this talk, because it uses markdown rather than
-reStructuredText, but I'm going to mention it briefly anyway beause it's so
-useful to be able to make slides out of a Jupyter notebook, and it's very easy.
+* There are a *lot* of solutions for producing slides from markdown
+* Markdown (without using HTML) is probably good for almost all slides you
+  want to produce (although you may occasionally want to make sure it's a
+  markdown with table support)
+
+What do I want to put onto slides?
+
+* Headings
+* Simple lines of text
+* Lists
+* Code examples
+* Quotations
+* Tables
+* Images
+
+.. note:: Note to self: Look back over my previous slides and see what would
+          have been harder to do without reStructuredText (if anything)
 
 Tools and examples
 ==================
@@ -76,8 +161,27 @@ Things to talk about for each:
 the thing in docutils and suchlike
 ----------------------------------
 
+rst2s5
+
 hovercraft and suchlike
 -----------------------
+
+Makefile::
+
+    .PHONY: show
+    show:
+        echo 'Go to http://localhost:8000 to see the slides'
+        hovercraft quotes.rst
+
+runs the slideshow live from the reStructuredText
+
+*or**::
+
+    .PHONY: slides
+    slides:
+        hovercraft quotes.rst slides
+
+to make an HTML version.
 
 swoopy texty things
 -------------------
@@ -85,8 +189,167 @@ swoopy texty things
 (is that hovercraft and suchlike?)
 
 
+Why PDF output?
+---------------
+
+* portable and one file. So very easy to show on someone else's computer in an
+  emergency (and this happens more often than one would like)
+* known size - doesn't scale like a webpage
+
+  * so known font size
+  * much easier to preview, as the preview doesn't change as the window
+    resizes
+
+* prints the same as it presents
+
+Slight snags?
+
+* not evident how to provide "slides with notes" in the same file as "just
+  slides" - this may in part be my inexpertise?
+
 pandoc and beamer and LaTeX
 ---------------------------
 
+Makefile::
+
+    markup-history-long-4x3.pdf: markup-history-long.rst
+        pandoc $< -t beamer -o $@ -V aspectratio:43
+
+    markup-history-long-16x9.pdf: markup-history-long-wide.rst
+        pandoc $< -t beamer -o $@ -V aspectratio:169
+
+Pros:
+
+* pandoc can do reStructuredText to anything, so that's useful
+* TeX is actually really good at layout
+
+Cons:
+
+* pandoc support for reStructuredText (for slides and so on) is not as good as
+  its support for markdown
+* needs TeX / LaTeX installation - can be quite big
+* long tool chain - multiple points that may give errors, and they don't
+  necessarily related closely to the original text
+* font handling - oh my. TeX and font handling is meant to be easy, but always
+  seems so awkward at the edge case (for instance, trying to use APL
+  characters)
+
 rst2pdf
 -------
+
+https://rst2pdf.org/
+
+.. note:: Note to self: The actual repository for that page appears to be
+          https://github.com/rst2pdf/rst2pdf.github.io, and not the rst2pdf
+          source repository, which is where the "View on Github" at the top of
+          the page links.
+
+          That's because that's what the ``_config.yml`` says to do. Which is
+          arguably correct if "View on Github" is taken to mean "View the
+          project", but frustrating if one want to see the source for the web
+          page. But I guess that's me being awkward.
+
+Note that I customise my slides slightly, in particular to change the spacing
+around list items, which seems a bit close in the default styles, and also to
+provide a 4x3 and a 16x9 layout. There's a good bit more that could be done in
+this way.
+
+The text at rst2pdf.org acknowledges that their slide style was inspired by
+that at https://github.com/akrabat/rst2pdf_example_presentation, which is
+still a useful reference.
+
+The example slide PDF (linked from rst2pdf.org) does show the "list items set
+a bit close". It's also an excellent example of "always make your test bigger
+than you think" - this is good advice for any slide set, and I'm not great at
+it...
+
+
+Special note: Jupyter Notebooks
+===============================
+
+Doesn't really belong in this talk, because it uses markdown rather than
+reStructuredText, but I'm going to mention it briefly anyway beause it's so
+useful to be able to make slides out of a Jupyter notebook, and it's very easy.
+
+-----------
+
+iTalks I've got on disk, and what I used to prepare/present them
+
+``~/talks`` directory
+
+* ``Slides``, dating from 2008 -- 2010
+
+  * ``01.from_future``, 2009, Mar 2009, includes ``s5defs.txt``
+  * ``01.from_future.short``, lightning talk, Nov 2008, includes ``s5defs.txt``
+  * ``02.reStructuredText``, draft, Jan 2009, includes ``s5defs.txt``
+  * ``03.pyrex``, lightning talk, Nov 2008
+  * ``04.kbus1``, CamPUG Mar 2010 (canned demonstration, "A simple intro to
+    using KBUS"), includes ``s5defs.txt``
+  * ``05.goldfish``, CamPUG Mar 2010 (canned demonstration, "A short
+    introduction, with pictures"), includes ``s5defs.txt``
+  * ``06.kbus2``, CamPUG Mar 2010, includes ``s5defs.txt``
+
+  with ``build.rst2pdf.sh`` and ``build.rst2s5.sh``
+
+* 2012 dirtree - appears to be landslide
+* 2014 pyconuk2014 - rst2s5
+* 2015 foss-talk - Powerpoint and Keynote
+* 2015 pyconuk2015 - Keynote
+* 2016 on-vcs - rst2s5
+* 2016 pyconuk2016 - hovercraft
+* 2016 rst_or_markdown - hovercraft
+* 2017 quotes-lightning-talk - hovercraft
+* 2018 lightning-talks - ``pandoc`` with ``-t beamer``
+* 2018 markup-history - ``pandoc`` with ``-t beamer``
+* 2018 python-history - hovercraft
+* 2018 pyfakefs - https://github.com/marianoguerra/rst2html5 (pretty, swoopy transitions)
+* 2018 python-style - Powerpoint (using a company style)
+* 2018 redis-talk - ``pandoc`` with ``-t beamer``
+* 2020 venv-intro - ``pandoc`` with ``-t beamer``
+* 2020 old-proglang-syntaxes-talk - rst2pdf
+* 2021 pact-talk - rst2pdf
+* 2021 why-I-quite-like-Ruby - rst2pdf
+* 2021 doing-without-class - Jupyter notebook, with `RISE`_
+
+.. _RISE: https://rise.readthedocs.io/en/stable
+
+So:
+
+* rst2s5
+* landslide
+* Powerpoint / Keynote
+* hovercraft
+* ``pandoc`` with ``-t beamer``
+* rst2html5
+* rst2pdf
+
+--------
+
+Links
+
+* https://docutils.sourceforge.io/docs/user/slide-shows.html Easy Slide Shows
+  With reST & S5 - Docutils
+* https://rst2html5slides.readthedocs.io/ rst2html5slides - Presentations from
+  restructuredtext files
+* https://github.com/vitay/rst2reveal vitay/rst2reveal: ReStructuredText to
+  HTML+reveal.js
+* https://www.markusz.io/posts/2018/02/02/project-docs-rst-markup-sphinx/
+  Project documentation with reStructuredText and Sphinx
+* 2010
+  https://schettino72.wordpress.com/2010/03/16/slide-presentations-in-restructuredtext-s5-pdf/
+* https://github.com/regebro/hovercraft (make ``impress.js`` presentations
+  with reStructuredText)
+* https://github.com/adamzap/landslide - from markdown, reStructuredText or textile.
+* 2009 https://ralsina.me/stories/BBS52.html - how to use rst2pdf to make slides
+* 2010 http://morgangoose.com/blog/2010/09/12/using-rst-for-presentations/
+  using rst2s5
+* 2012 https://www.yergler.net/2012/03/13/hieroglyph/ using
+  https://github.com/nyergler/hieroglyph, which is built on top of sphinx, to
+  make s5 slides
+* 2021
+  https://www.oliverdavies.uk/blog/presenting-pdf-slides-using-pdfpc-pdf-presenter-console/
+  Presenting from PDF slides using pdfpc (PDF Presenter Console) and before
+  that
+* https://www.oliverdavies.uk/talks/building-presenting-slide-decks-rst2pdf/
+* https://github.com/impress/impress.js/wiki/Examples-and-demos - things that
+  use impress, including `1G`hovercraft!``
