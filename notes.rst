@@ -163,10 +163,121 @@ Things to talk about for each:
 the thing in docutils and suchlike
 ----------------------------------
 
-rst2s5
+Docutils: rst2s5
+----------------
 
-hovercraft and suchlike
------------------------
+https://docutils.sourceforge.io/docs/user/slide-shows.html
+
+Outputs HTML for use with S5_, a "Simple Standards-based Slide Show System" by
+Eric Meyer.
+
+.. _S5: http://meyerweb.com/eric/tools/s5/
+
+* Good support for reStructuredText (!)
+* Top level titles delimit slides
+* Incremental list display
+* Can enable progress display in a footer
+* ``.. class:: handout`` directive for handouts (not shown in slideshow, shown
+  when printing or viewing in outline mode)
+* can control relative text size, colours, and various other things
+* The example themes all feel a bit "heavy" to me, but at least they assume
+  decent size text (**nb** check that claim)
+* (Documentation by David Goodger, so it's good. And indeed, the documentation
+  can *be* a slide show)
+
+I'd forgotten how sophisticated this system actually is - now I'm feeling nostalgic!
+
+rst2slides
+----------
+
+I've never used this.
+
+"It uses Rob Flaherty’s Lightweight `HTML5 Slideshow`_ as template, and the most
+of Bruno Renie’s `HTML5Translator`_." (that last link may or may not be correct)
+
+Demo is at https://pythonhosted.org/rst2slides/#1, demo source code at
+https://pythonhosted.org/rst2slides/index.rst
+
+.. _`HTML Slideshow`: https://www.ravelrumba.com/blog/html5-slideshow/
+.. _`HTML5Translator`: https://pastebin.com/A6mMe2C5
+
+It's on Pypi, https://pypi.org/project/rst2slides/, but the homepage link is
+broken.
+
+Doesn't support a lot of things, but does do:
+
+* one (top level) header per slide
+* incremental lists
+* syntax hightlighting with pygments
+
+rst2html5
+---------
+
+https://github.com/marianoguerra/rst2html5
+
+    transform restructuredtext documents to html5 + twitter's bootstrap css,
+    deck.js or reveal.js
+
+* output using ``deck.js`` *or* ``reveal.js`` *or* ``impress.js`` *or*
+  ``bootstrap`` *or* just as HTML
+
+Examples of each type of output from the github page (above)
+
+
+.. note:: Not to be confused with ``rst2html5`` (same name)
+
+    https://foss.heptapod.net/doc-utils/rst2html5
+
+    https://rst2html5.readthedocs.io/en/latest/
+
+    "rst2html5 generates (X)HTML5 documents from standalone reStructuredText
+    sources. It is a complete rewrite of the docutils’ ``rst2html`` and uses
+    new HTML5 constructs such as ``<section>`` and ``<aside>``."
+
+Landslide
+---------
+
+https://github.com/adamzap/landslide - edited in 2020
+
+Supports Python 3
+
+Landslide generates a slideshow using from markdown, ReST, or textile. It
+builds off of Google's html5slides_ template.
+
+.. _html5slides: https://code.google.com/archive/p/html5slides/
+
+Using reStructuredText:
+
+* Use ``--------`` (horizontal rule) to separate the slides
+* Headings become slide title (the first heading in a slide is level 1)
+* ``.. code-block:: <language>`` directive for code
+
+Not clear how to do presenter notes in reStructuredText (if it's possible - I
+don't think it is).
+
+Main page uses markdown for examples.
+
+
+Hovercraft!
+-----------
+
+https://hovercraft.readthedocs.io/en/latest/index.html
+
+https://github.com/regebro/hovercraft - edited in 2021
+
+Demo at https://regebro.github.io/hovercraft/#/step-1 - which shows off its
+features rather well.
+
+Hovercraft! is a tool to make `impress.js`_ presentations from
+reStructuredText.
+
+    It's a presentation framework based on the power of CSS3 transforms and
+    transitions in modern browsers and inspired by the idea behind prezi.com.
+
+(transitions can be left-to-right, pan up-and-down, rotate, zoom)
+
+.. _`impress.js`: https://github.com/impress/impress.js
+
 
 Makefile::
 
@@ -185,10 +296,6 @@ runs the slideshow live from the reStructuredText
 
 to make an HTML version.
 
-swoopy texty things
--------------------
-
-(is that hovercraft and suchlike?)
 
 
 Why PDF output?
@@ -211,6 +318,20 @@ Slight snags?
 
 pandoc and beamer and LaTeX
 ---------------------------
+
+https://pandoc.org/
+
+https://www.overleaf.com/learn/latex/Beamer
+
+https://www.overleaf.com/learn/latex/Beamer_Presentations%3A_A_Tutorial_for_Beginners_(Part_1)%E2%80%94Getting_Started
+
+`A slideshow toolchain with ReST, Pandoc and LaTeX Beamer`_ by Fraser Tweedale
+(video)
+
+Dig out the other link I have to a "how to" article.
+
+.. _`A slideshow toolchain with ReST, Pandoc and LaTeX Beamer`:
+   https://talks.bfpg.org/talks/2016-03-08.a_slideshow_toolchain_with_rest_pandoc_and_latex_beamer.html
 
 Makefile::
 
@@ -236,10 +357,27 @@ Cons:
   seems so awkward at the edge case (for instance, trying to use APL
   characters)
 
+
+Sphinx and hieroglyph
+---------------------
+
+I've never used it.
+
+Combine with pandoc and beamer (!)
+https://edunham.net/2015/03/05/hieroglyph2beamer_with_pandoc.html
+
+`Easy lecture slides made difficult with Pandoc and Beamer`__ (using markdown)
+
+__ https://andrewgoldstone.com/blog/2014/12/24/slides/
+
 rst2pdf
 -------
 
 https://rst2pdf.org/
+
+https://github.com/rst2pdf/rst2pdf
+
+https://www.oliverdavies.uk/talks/building-presenting-slide-decks-rst2pdf/
 
 .. note:: Note to self: The actual repository for that page appears to be
           https://github.com/rst2pdf/rst2pdf.github.io, and not the rst2pdf
@@ -269,6 +407,13 @@ Problems:
 
 * styling improvements (list spacing)
 * tendency to generate an extra blank slide if text gets too near the end of a slide
+
+2022-01-11
+https://akrabat.com/background-images-in-rst2pdf-0-99/
+"Background images and multiple styles in rst2pdf" - I should read the
+`CHANGES`__
+
+__ https://github.com/rst2pdf/rst2pdf/blob/main/CHANGES.rst#099-2022-01-08
 
 reStructuredText incompatibilies / extensions
 =============================================
