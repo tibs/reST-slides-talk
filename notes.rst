@@ -187,6 +187,8 @@ Eric Meyer.
 
 I'd forgotten how sophisticated this system actually is - now I'm feeling nostalgic!
 
+But does it do code highlighting?
+
 rst2slides
 ----------
 
@@ -295,6 +297,8 @@ runs the slideshow live from the reStructuredText
         hovercraft quotes.rst slides
 
 to make an HTML version.
+
+* file:///Users/tibs/Sync/30.Tibs/33.Talks/python-history/slides/index.html#/step-1
 
 
 
@@ -442,43 +446,44 @@ useful to be able to make slides out of a Jupyter notebook, and it's very easy.
 
 -----------
 
-iTalks I've got on disk, and what I used to prepare/present them
+Talks I've got on disk, and what I used to prepare/present them. There are
+obviously some things missing.
 
 ``~/talks`` directory
 
-* ``Slides``, dating from 2008 -- 2010
+* 2008-11 ``Slides/01.from_future.short``, lightning talk, rst2s5
+* 2008-11 ``Slides/03.pyrex``, lightning talk, Nov 2008
+* 2009-01 ``Slides/02.reStructuredText``, draft, rst2s5
+* 2009-03 ``Slides/01.from_future``, rst2s5
+* 2010 ``Slides/04.kbus1``, CamPUG (canned demonstration, "A simple intro to using KBUS"), rst2s5.
 
-  * ``01.from_future``, 2009, Mar 2009, includes ``s5defs.txt``
-  * ``01.from_future.short``, lightning talk, Nov 2008, includes ``s5defs.txt``
-  * ``02.reStructuredText``, draft, Jan 2009, includes ``s5defs.txt``
-  * ``03.pyrex``, lightning talk, Nov 2008
-  * ``04.kbus1``, CamPUG Mar 2010 (canned demonstration, "A simple intro to
-    using KBUS"), includes ``s5defs.txt``
-  * ``05.goldfish``, CamPUG Mar 2010 (canned demonstration, "A short
-    introduction, with pictures"), includes ``s5defs.txt``
-  * ``06.kbus2``, CamPUG Mar 2010, includes ``s5defs.txt``
+  This is probably very like the version used at EuroPython 2010. See also
+  http://kynesim.blogspot.com/2010/02/simple-introduction-to-using-kbus.html
 
-  with ``build.rst2pdf.sh`` and ``build.rst2s5.sh``
+* 2010 ``Slides/05.goldfish``, CamPUG (canned demonstration, "A short introduction, with pictures"), rst2s5
 
-* 2012 dirtree - appears to be landslide
-* 2014 pyconuk2014 - rst2s5
-* 2015 foss-talk - Powerpoint and Keynote
-* 2015 pyconuk2015 - Keynote
-* 2016 on-vcs - rst2s5
-* 2016 pyconuk2016 - hovercraft
-* 2016 rst_or_markdown - hovercraft
-* 2017 quotes-lightning-talk - hovercraft
-* 2018 lightning-talks - ``pandoc`` with ``-t beamer``
-* 2018 markup-history - ``pandoc`` with ``-t beamer``
-* 2018 python-history - hovercraft
-* 2018 pyfakefs - https://github.com/marianoguerra/rst2html5 (pretty, swoopy transitions)
-* 2018 python-style - Powerpoint (using a company style)
-* 2018 redis-talk - ``pandoc`` with ``-t beamer``
-* 2020 venv-intro - ``pandoc`` with ``-t beamer``
-* 2020 old-proglang-syntaxes-talk - rst2pdf
-* 2021 pact-talk - rst2pdf
-* 2021 why-I-quite-like-Ruby - rst2pdf
-* 2021 doing-without-class - Jupyter notebook, with `RISE`_
+  See also http://kynesim.blogspot.com/2010/02/kbus-limpets-introduction-with-goldfish.html
+
+* 2010 ``Slides/06.kbus2``, CamPUG, rst2s5
+* 2012 ``dirtree`` - appears to be landslide
+* 2014 ```pyconuk2014`` - rst2s5
+* 2015 ``foss-talk`` - Powerpoint and Keynote
+* 2015 ``pyconuk2015`` - Keynote
+* 2016 ``on-vcs`` - rst2s5
+* 2016 ``pyconuk2016`` - hovercraft
+* 2016 ``rst_or_markdown`` - hovercraft
+* 2017 ``python-history`` - hovercraft
+* 2017 ``quotes-lightning-talk`` - hovercraft
+* 2017, 2018 ``markup-history`` - ``pandoc`` with ``-t beamer``
+* 2018 ``lightning-talks`` - ``pandoc`` with ``-t beamer``
+* 2018 ``pyfakefs`` - https://github.com/marianoguerra/rst2html5 (pretty, swoopy transitions)
+* 2018 ``python-style`` - Powerpoint (using a company style)
+* 2018 ``redis-talk`` - ``pandoc`` with ``-t beamer``
+* 2020 ``venv-intro`` - ``pandoc`` with ``-t beamer``
+* 2020 ``old-proglang-syntaxes-talk`` - rst2pdf
+* 2021 ``pact-talk`` - rst2pdf
+* 2021 ``why-I-quite-like-Ruby`` - rst2pdf
+* 2021 ``doing-without-class`` - Jupyter notebook, with `RISE`_
 
 .. _RISE: https://rise.readthedocs.io/en/stable
 
