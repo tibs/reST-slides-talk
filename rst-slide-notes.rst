@@ -286,6 +286,10 @@ https://hovercraft.readthedocs.io/en/latest/index.html
 
 https://github.com/regebro/hovercraft - edited in 2021
 
+.. note:: the sources for the example slideshow are on branch ``gh-pages`` at
+          https://github.com/regebro/hovercraft/, that is, at
+          https://github.com/regebro/hovercraft/tree/gh-pages
+
 Demo at https://regebro.github.io/hovercraft/#/step-1 - which shows off its
 features rather well.
 
