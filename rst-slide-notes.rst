@@ -58,8 +58,8 @@ Why make slides from a markup language?
 
 * Good if you are used to typing, may be much faster to procude slides.
 * Very good if you can't use a mouse or other pointing device, as it is just text.
-* When generating the slides, enables one to concentrate on the text, rather
-  than how the text will look.
+* When generating the slides, enables one to concentrate on the content, not
+  the eventual presentation / layout
 * Version control
 * Fits into traditional toolchains (make and the like)
 * Just text files, so can search and so on
@@ -434,6 +434,10 @@ Problems:
 
 * styling improvements (list spacing)
 * tendency to generate an extra blank slide if text gets too near the end of a slide
+* title to start new page (I think it should be possible to use ``raw:: pdf``
+  directives to get round this, but it's not elegant, and I haven't made it
+  work - but then I've not needed it). A more elegant solution would be nice.
+  **But** slides are just a special case of normal PDF page generation.
 
 2022-01-11
 https://akrabat.com/background-images-in-rst2pdf-0-99/

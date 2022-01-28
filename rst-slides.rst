@@ -25,6 +25,7 @@ Making slides with reStructuredText
     Slides and accompanying material at https://github.com/tibs/reST-slides-talk
 
 
+
 What we shall cover
 -------------------
 
@@ -34,6 +35,82 @@ Other slides ...
 ----------------
 
 ...
+
+Tools I shall show
+------------------
+
+These are the tools I've used.
+
+* rst2s5_
+* landslide_
+* `hovercraft!`_
+* pandoc_ with LaTex and beamer_
+* rst2html5_
+* rst2pdf_
+
+.. _rst2s5: https://docutils.sourceforge.io/docs/user/slide-shows.html
+.. _landslide: https://github.com/adamzap/landslide
+.. _`hovercraft!`: https://hovercraft.readthedocs.io/en/latest/index.html
+.. _pandoc: https://pandoc.org
+.. _beamer: https://github.com/josephwright/beamer
+.. _rst2html5: https://github.com/marianoguerra/rst2html5
+.. _rst2pdf: https://rst2pdf.org/
+
+
+Other tools I shan't show
+-------------------------
+
+* sphinx + ???
+* what else?
+
+rst2s5
+------
+
+rst2s5 demo
+-----------
+
+DEMO
+
+landslide
+---------
+
+landslide demo
+--------------
+
+DEMO
+
+hovercraft!
+-----------
+
+hovercraft! demo
+----------------
+
+DEMO
+
+pandoc and beamer (and LaTeX)
+-----------------------------
+
+pandoc and beamer demo
+----------------------
+
+DEMO
+
+rst2html5
+---------
+
+DEMO
+
+rst2pdf
+-------
+
+No separate demo for this one - it's what I used to make these slides.
+
+What would I recommend?
+-----------------------
+
+For swoopy effects like impress: ...
+
+For everyday usage: rst2pdf
 
 
 Fin
