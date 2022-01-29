@@ -41,8 +41,6 @@ Traditional tools
 
 Obviously, I'm not the best person to ask
 
-All GUI...
-
 * Keynote (Apple, free with Mac OS)
 * Powerpoint (Microsoft, part of MS Office)
 * Impress (LibreOffice, so free)
@@ -53,107 +51,87 @@ but there are lots of other programs out there, both free and not.
 Why use markup
 --------------
 
-* Familiarity:
+Familiarity
+-----------
 
-    * Editing text files. Which we mostly already know how to do.
-    * Using a familiar tool, just a text editor.
+Typing text
 
-* Good if you are used to typing, may be much faster to procude slides.
-* Very good if you can't use a mouse or other pointing device, as it is just text.
-* When generating the slides, enables one to concentrate on the content, not
-  the eventual presentation / layout
-* Version control
-* Fits into traditional toolchains (make and the like)
-* Just text files, so can search and so on
+into a text editor
 
-* Keeps the slides relatively simple, which can be a good thing (it often is).
+Accessability
+-------------
 
-  Doesn't require graphic design skills.
+No need to use pointing devices.
 
-  Note this doesn't mean no transitions (for instance), as that can be a
-  presentation engine thing, if you really want it.
+Works well with speech-to-text or text-to-speech.
 
-Don't ignore that "keeps things simple" point - it's very easy to go over the
-top with GUI slide making tools.
+Content over presentation
+-------------------------
 
-Other things:
+Sort out the content and let the tool do much of the presentation work.
 
-* as it's just text, can include templating and process it - also including
-  things like ``cog`` to allow including actual programming examples and their
-  calculated output.
+(although slides do need more thought about presentation)
+
+Keep the design under control
+-----------------------------
+
+No need to assume the author has graphical design skills.
+
+It's very easy to use too many "fancy" elements with a GUI tool.
+
+Multiple tools
+--------------
+
+The same (or very similar) text can be re-used in different tools.
+
+Slides / notes / article
+------------------------
+
+Slides, notes and articles can be from the same source.
+
+...or at least text can be easily shared between them,
+
+Version control
+---------------
+
+All the benefits of version control
+
+Plus github/gitlab/etc. are a good sharing mechanism
+
+Toolchains
+----------
+
+* Makefile, etc., to prepare the slides
+* Templating to allow modification of the text
+* Searchable
+
+  (for instance, cog_ to allow insertion of code results)
+
+.. _cog: https://github.com/nedbat/cog
 
 
 Why not use markup
 ------------------
 
-* Graphics heavy slides
+* If the graphics are the point of the slide
 
-  If the graphics are the point of the slide, then markup, which just
-  "includes" images, may not be the best, as one is working at second hand
-  with the graphics
+* If complicated layout is necessary
 
-  Example: graphs with highlighting that appears or changes on successive
-  slides. Using markup, these would need to be repeated (similar) images.
+* If the company mandated style can't be reproduced
 
-  (although I have done this sort of thing)
-
-* Layout heavy slides
-
-  Complicated layout is probably beyond what the markup is designed to
-  produce. Just as one should move to another tool if reStructuredText is not
-  adequate for text, the same applies for slides.
-
-  For instance, slides which gradually reveal or hide parts of a body of
-  source code, while leaving the layout the same. This can be a very useful
-  effect for explaining code, but is hard to describe in something like
-  reStructuredText.
-
-  (Hmm. I wonder how hard...)
-
-  (Also, there's the ability to do ``:hl_lines: 2 3 4`` within a ``.. code-block::``)
-
-* Design heavy slides
-
-  For example, if a company has a particular design that needs adhering to, or
-  if close control is needed over the colour and appearance of text in
-  different parts of the slide.
-
-Just as when producing text documents, there are times when something like
-reStructuredText is appropriate, and times when TeX or some form of desktop
-publishing is more appropriate, sometimes one just needs Keynote to get the
-job done.
+* If GUI slide making is your strong point, and typing is not
 
 Why use reStructuredText
 ------------------------
 
-* Familiarity
-* More powerful than markdown
+* Familiarity - it's what I use for other tasks
+
+* Sweetspot of simplicity / power
+
+  Although slides may not need all its capabilities, and those are
+  there when I do need them.
+
 * Well defined, reasonable error handling
-
------
-
-I want to use it because it's my favourite markup, and it's what I write
-without thinking. But that's hardly a good enough reason for other people.
-
-So let's look first at why not reStructuredText:
-
-* There are a *lot* of solutions for producing slides from markdown
-* Markdown (without using HTML) is probably good for almost all slides you
-  want to produce (although you may occasionally want to make sure it's a
-  markdown with table support)
-
-What do I want to put onto slides?
-
-* Headings
-* Simple lines of text
-* Lists
-* Code examples
-* Quotations
-* Tables
-* Images
-
-.. note:: Note to self: Look back over my previous slides and see what would
-          have been harder to do without reStructuredText (if anything)
 
 
 Why not use reStructuredText
@@ -162,6 +140,8 @@ Why not use reStructuredText
 There are a lot more tools for markdown.
 
 "Readable raw markup" is not as much of an advantage for slides.
+
+Slide markup is generally very simple.
 
 Dedicated slide maker or general tool
 -------------------------------------
@@ -178,7 +158,7 @@ This does mean that the slide text may not be parseable by other tools.
 
 General purpose tools
 ---------------------
-Some tools are generic, but can produce slides because slides are, after all,
+Some tools are generic, but can produce slides because slides are
 just a form of document. They tend to:
 
 1. use headings as slide delimitors
@@ -233,44 +213,55 @@ These are the tools I've used.
 Not used: Hieroglyph and Sphinx
 -------------------------------
 
-* Hieroglyph_ a sphinx extension, last commit 2020
+Hieroglyph_ a sphinx extension, last commit 2020
 
 .. _Hieroglyph: https://hieroglyph.readthedocs.io/en/latest/
 
-Combine with pandoc and beamer (!)
-https://edunham.net/2015/03/05/hieroglyph2beamer_with_pandoc.html
+This might be useful if the slide sources are to be kept within an existing
+sphinx directory structure.
 
-`Easy lecture slides made difficult with Pandoc and Beamer`__ (using markdown)
+E. Dunham's 2015 article '`hieroglyph2beamer with Pandoc`__ shows how to use
+pandoc and LaTeX to get better PDF slides.
 
-__ https://andrewgoldstone.com/blog/2014/12/24/slides/
+__ https://edunham.net/2015/03/05/hieroglyph2beamer_with_pandoc.html
+
+hieroglyph characteristics
+--------------------------
+
+* generates HTML
+* slides separated by titles
+* all the power of sphinx
+* can mix slides in with normal text
+* includes its own presentation console
 
 Not used: rst2slides
 --------------------
 
 I've never used this.
 
-"It uses Rob Flaherty’s Lightweight `HTML5 Slideshow`_ as template, and the most
-of Bruno Renie’s `HTML5Translator`_." (that last link may or may not be correct)
-
-Demo is at https://pythonhosted.org/rst2slides/#1, demo source code at
-https://pythonhosted.org/rst2slides/index.rst
+    "It uses Rob Flaherty’s Lightweight `HTML5 Slideshow`_ as template, and
+    most of Bruno Renie’s `HTML5Translator`_."
 
 .. _`HTML5 Slideshow`: https://www.ravelrumba.com/blog/html5-slideshow/
 .. _`HTML5Translator`: https://pastebin.com/A6mMe2C5
 
-It's on Pypi, https://pypi.org/project/rst2slides/, but the homepage link is
-broken.
+rst2slides characteristics
+--------------------------
 
-Doesn't support a lot of things, but does do:
-
-* one (top level) header per slide
+* generates HTML
+* slides separated by titles
 * incremental lists
 * syntax hightlighting with pygments
 
+rst2slides demo
+---------------
+
+Although I've not used it, the demo is quite nice.
+
+DEMO at https://pythonhosted.org/rst2slides/#1
+
 The tools I have used
 ---------------------
-
-...
 
 rst2s5
 ------
@@ -303,14 +294,14 @@ But does it do code highlighting?
 rst2s5 characteristics
 ----------------------
 
-* slides separated by
-* code examples
-* notes
+* slides separated by titles
+* code examples don't have syntax highlighting (**check**)
 
 rst2s5 demo
 -----------
 
-DEMO
+DEMO at https://docutils.sourceforge.io/docs/user/slide-shows.s5.html
+is the actual documentation page as slides - perhaps a bit long.
 
 landslide
 ---------
@@ -345,7 +336,7 @@ landslide characteristics
 landslide demo
 --------------
 
-DEMO
+DEMO at http://landslide.adamzap.com/#slide1
 
 hovercraft!
 -----------
@@ -401,7 +392,7 @@ hovercraft! characteristics
 hovercraft! demo
 ----------------
 
-DEMO
+DEMO at https://regebro.github.io/hovercraft/#/step-1
 
 rst2html5
 ---------
@@ -410,6 +401,8 @@ https://github.com/marianoguerra/rst2html5
 
     transform restructuredtext documents to html5 + twitter's bootstrap css,
     deck.js or reveal.js
+
+Last significant activity on the repository in 2017
 
 General purpose tool that can has options to help with slide production.
 
@@ -439,7 +432,7 @@ rst2html5 characteristics
 rst2html5 demo
 --------------
 
-DEMO
+DEMO using revearl.js at http://marianoguerra.github.io/rst2html5/output/reveal.html#/
 
 Why PDF?
 --------
@@ -507,7 +500,7 @@ pandoc and beamer characteristics
 pandoc and beamer demo
 ----------------------
 
-DEMO
+DEMO using my Redis talk, https://github.com/tibs/redis-talk/blob/master/redis-slides-16x9.pdf
 
 rst2pdf
 -------
@@ -589,11 +582,11 @@ Wrapup
 What would I recommend?
 -----------------------
 
-For everyday usage: rst2pdf
+For everyday usage, rst2pdf
 
-For swoopy effects like impress: Hovercraft!
+For swoopy effects like impress, Hovercraft!
 
-???
+If you already have a sphinx project, then hieroglyph might be of interest.
 
 Fin
 ---
