@@ -179,6 +179,30 @@ reStruturedText slide making tools I've used
 .. _rst2html5: https://github.com/marianoguerra/rst2html5
 .. _rst2pdf: https://rst2pdf.org/
 
+General purpose versus slide specific
+-------------------------------------
+
+Slide specific tools
+--------------------
+Some tools are slide specific. They tend to have specialisations for slide
+making, and in particular
+
+1. may support ``------`` as a "new slide" delimitor
+2. may have slide-specific extensions to reStructuredText
+
+This does mean that the slide text may not be parseable by other tools.
+
+General purpose tools
+---------------------
+Some tools are generic, but can produce slides because slides are, after all,
+just a form of document. They tend to:
+
+1. use headings as slide delimitors
+2. only understand "normal" reStructuredText (**check this!**)
+
+This does have the advantage that the slide text can be exported in other
+ways - for instance, as a simple linear document.
+
 the thing in docutils and suchlike
 ----------------------------------
 
@@ -238,6 +262,8 @@ https://github.com/marianoguerra/rst2html5
 
     transform restructuredtext documents to html5 + twitter's bootstrap css,
     deck.js or reveal.js
+
+General purpose tool that can has options to help with slide production.
 
 * output using ``deck.js`` *or* ``reveal.js`` *or* ``impress.js`` *or*
   ``bootstrap`` *or* just as HTML
@@ -355,6 +381,8 @@ https://www.overleaf.com/learn/latex/Beamer_Presentations%3A_A_Tutorial_for_Begi
 `A slideshow toolchain with ReST, Pandoc and LaTeX Beamer`_ by Fraser Tweedale
 (video)
 
+Pandoc is a general purpose tool for converting between markups.
+
 Dig out the other link I have to a "how to" article.
 
 .. _`A slideshow toolchain with ReST, Pandoc and LaTeX Beamer`:
@@ -403,6 +431,8 @@ rst2pdf
 https://rst2pdf.org/
 
 https://github.com/rst2pdf/rst2pdf
+
+General purpose tool. Slides are just another page style.
 
 https://www.oliverdavies.uk/talks/building-presenting-slide-decks-rst2pdf/
 
