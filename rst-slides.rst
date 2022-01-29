@@ -33,8 +33,8 @@ What we shall cover
 * Why use markup (and why not)
 * Why reStructuredText
 * HTML versus PDF
-* Tools I've used and examples
-* Wrap up and recommendations
+* Tools I've used (mostly) and examples
+* Recommendations
 
 Traditional tools
 -----------------
@@ -79,13 +79,13 @@ No need to assume the author has graphical design skills.
 
 It's very easy to use too many "fancy" elements with a GUI tool.
 
-Multiple tools
---------------
+Process with different tools
+----------------------------
 
 The same (or very similar) text can be re-used in different tools.
 
-Slides / notes / article
-------------------------
+Process for different purposes
+------------------------------
 
 Slides, notes and articles can be from the same source.
 
@@ -96,19 +96,19 @@ Version control
 
 All the benefits of version control
 
-Plus github/gitlab/etc. are a good sharing mechanism
+Plus github/gitlab/etc., are a good sharing mechanism
 
 Toolchains
 ----------
 
 * Makefile, etc., to prepare the slides
 * Templating to allow modification of the text
-* Searchable
 
   (for instance, cog_ to allow insertion of code results)
 
-.. _cog: https://github.com/nedbat/cog
+* Searchable
 
+.. _cog: https://github.com/nedbat/cog
 
 Why not use markup
 ------------------
@@ -370,35 +370,22 @@ https://github.com/marianoguerra/rst2html5
 
 Last significant commit in 2017, but minor documentation fixes since.
 
-General purpose tool that can has options to help with slide production.
+General purpose tool that can also provide slides using various mechanisms.
 
-* output using ``deck.js`` *or* ``reveal.js`` *or* ``impress.js`` *or*
-  ``bootstrap`` *or* just as HTML
-
-Examples of each type of output from the github page (above)
-
-
-.. note:: Not to be confused with ``rst2html5`` (same name)
-
-    https://foss.heptapod.net/doc-utils/rst2html5
-
-    https://rst2html5.readthedocs.io/en/latest/
-
-    "rst2html5 generates (X)HTML5 documents from standalone reStructuredText
-    sources. It is a complete rewrite of the docutils’ ``rst2html`` and uses
-    new HTML5 constructs such as ``<section>`` and ``<aside>``."
+**Note:** Not to be confused with ``rst2html5`` at https://foss.heptapod.net/doc-utils/rst2html5
 
 rst2html5 characteristics
 -------------------------
 
-* slides separated by
-* code examples
-* notes
+* can embed all content into single HTML file
+* slides separated by titles
+* output slides with ``deck.js`` /``reveal.js`` / ``impress.js`` / ``bootstrap``
+* optional syntax highlighting
 
 rst2html5 demo
 --------------
 
-DEMO using revearl.js at http://marianoguerra.github.io/rst2html5/output/reveal.html#/
+DEMO using reveal.js at http://marianoguerra.github.io/rst2html5/output/reveal.html#/
 
 Why PDF?
 --------
@@ -416,117 +403,67 @@ Possible problem: support for slide notes
 pandoc and beamer (and LaTeX)
 -----------------------------
 
-https://pandoc.org/
+https://pandoc.org/ and https://pandoc.org/MANUAL.html#slide-shows
 
-https://www.overleaf.com/learn/latex/Beamer
+Pandoc is a tool for converting between markup formats. It can output a
+variety of slide formats.
 
-https://www.overleaf.com/learn/latex/Beamer_Presentations%3A_A_Tutorial_for_Beginners_(Part_1)%E2%80%94Getting_Started
-
-`A slideshow toolchain with ReST, Pandoc and LaTeX Beamer`_ by Fraser Tweedale
-(video)
-
-Pandoc is a general purpose tool for converting between markups.
-
-Dig out the other link I have to a "how to" article.
-
-.. _`A slideshow toolchain with ReST, Pandoc and LaTeX Beamer`:
-   https://talks.bfpg.org/talks/2016-03-08.a_slideshow_toolchain_with_rest_pandoc_and_latex_beamer.html
-
-Makefile::
-
-    markup-history-long-4x3.pdf: markup-history-long.rst
-        pandoc $< -t beamer -o $@ -V aspectratio:43
-
-    markup-history-long-16x9.pdf: markup-history-long-wide.rst
-        pandoc $< -t beamer -o $@ -V aspectratio:169
-
-Pros:
-
-* pandoc can do reStructuredText to anything, so that's useful
-* TeX is actually really good at layout
-
-Cons:
-
-* pandoc support for reStructuredText (for slides and so on) is not as good as
-  its support for markdown
-* needs TeX / LaTeX installation - can be quite big
-* long tool chain - multiple points that may give errors, and they don't
-  necessarily related closely to the original text
-* font handling - oh my. TeX and font handling is meant to be easy, but always
-  seems so awkward at the edge case (for instance, trying to use APL
-  characters)
+Beamer is a LaTeX class for producing slides and presenations.
 
 pandoc and beamer characteristics
 ---------------------------------
 
-* slides separated by
-* code examples
-* notes
+* slides separated by ``----`` or headings at a specified level
+* syntax highlighting of code using the Haskell library skylighting_
+* lots of other functionality
+
+.. _skylighting: https://github.com/jgm/skylighting
+
+Pros of pandoc and beamer
+-------------------------
+
+* pandoc can do reStructuredText to anything, so that's useful
+* TeX is actually really good at layout
+
+Cons of pandoc and beamer
+-------------------------
+
+* pandoc support for reStructuredText is not as good as for markdown
+* needs TeX / LaTeX installation
+* long tool chain - multiple points that may give errors
+* font handling - oh my. Non-trivial to extend.
 
 pandoc and beamer demo
 ----------------------
 
 DEMO using my Redis talk, https://github.com/tibs/redis-talk/blob/master/redis-slides-16x9.pdf
 
+pandoc slide outputs
+--------------------
+
+PDF using LaTeX beamer - the only one I've explored
+
+HTML using S5, DZSlides, Slidy, Slideous, or reveal.js
+
+Microsoft Powerpoint
+
 rst2pdf
 -------
 
 https://rst2pdf.org/
 
-https://github.com/rst2pdf/rst2pdf
+https://rst2pdf.org/examples#basic-presentation-dark-and-light-themes
 
 General purpose tool. Slides are just another page style.
 
-https://www.oliverdavies.uk/talks/building-presenting-slide-decks-rst2pdf/
-
-.. note:: Note to self: The actual repository for that page appears to be
-          https://github.com/rst2pdf/rst2pdf.github.io, and not the rst2pdf
-          source repository, which is where the "View on Github" at the top of
-          the page links.
-
-          That's because that's what the ``_config.yml`` says to do. Which is
-          arguably correct if "View on Github" is taken to mean "View the
-          project", but frustrating if one want to see the source for the web
-          page. But I guess that's me being awkward.
-
-Note that I customise my slides slightly, in particular to change the spacing
-around list items, which seems a bit close in the default styles, and also to
-provide a 4x3 and a 16x9 layout. There's a good bit more that could be done in
-this way.
-
-The text at rst2pdf.org acknowledges that their slide style was inspired by
-that at https://github.com/akrabat/rst2pdf_example_presentation, which is
-still a useful reference.
-
-The example slide PDF (linked from rst2pdf.org) does show the "list items set
-a bit close". It's also an excellent example of "always make your test bigger
-than you think" - this is good advice for any slide set, and I'm not great at
-it...
-
-Problems:
-
-* styling improvements (list spacing)
-* tendency to generate an extra blank slide if text gets too near the end of a slide
-* title to start new page (I think it should be possible to use ``raw:: pdf``
-  directives to get round this, but it's not elegant, and I haven't made it
-  work - but then I've not needed it). A more elegant solution would be nice.
-  **But** slides are just a special case of normal PDF page generation.
-
-2022-01-11
-https://akrabat.com/background-images-in-rst2pdf-0-99/
-"Background images and multiple styles in rst2pdf" - I should read the
-`CHANGES`__
-
-__ https://github.com/rst2pdf/rst2pdf/blob/main/CHANGES.rst#099-2022-01-08
-
-
+Actively maintained.
 
 rst2pdf characteristics
 -----------------------
 
 * slides separated by titles
-* code examples
-* notes
+* syntax highlighting for code examples
+* slides are just another page format
 
 rst2pdf demo
 ------------
@@ -535,15 +472,17 @@ https://rst2pdf.org/examples/presentation1/presentation1-light.pdf
 
 and, of course, these slides.
 
-Wrapup
-------
+rst2pdf notes
+-------------
 
-* rst2s5_
-* landslide_
-* `hovercraft!`_
-* pandoc_ with LaTex and beamer_
-* rst2html5_
-* rst2pdf_
+I customise my slides slightly, in particular to change the spacing
+around list items, and also to provide 4x3 and 16x9 layouts.
+
+I need to contribute these examples back to the project, and also write some
+more documentation on making slides with rst2pdf.
+
+I have observed that it can sometimes generate an extra blank slide if the
+preceding slide gets too full. I need to investigate this.
 
 What would I recommend?
 -----------------------
