@@ -11,11 +11,12 @@ RST2PDF=rst2pdf --break-level=1 -e preprocess
 .PHONY: default
 default: html pdf
 
-# We don't try to provide an HTML version of the slides
+# Note that the HTML version of the slides is *not* a presentation
 .PHONY: html
 html:
 	rst2html.py README.rst README.html
 	rst2html.py rst-slide-notes.rst rst-slide-notes.html
+	rst2html.py rst-slides.rst rst-slides.html
 
 .PHONY: pdf
 pdf: slides notes

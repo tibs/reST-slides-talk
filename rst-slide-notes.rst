@@ -20,6 +20,7 @@ for the related license.
    :alt: CC-Attribution-ShareAlike image
    :align: middle
 
+.. _`Creative Commons Attribution-ShareAlike 4.0 International License`: http://creativecommons.org/licenses/by-sa/4.0/
 .. _CamPUG: https://www.meetup.com/CamPUG/
 .. _reStructuredText: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
 .. _rst2pdf: https://rst2pdf.org/
@@ -65,6 +66,8 @@ Why make slides from a markup language?
 * Just text files, so can search and so on
 
 * Keeps the slides relatively simple, which can be a good thing (it often is).
+
+  Doesn't require graphic design skills.
 
   Note this doesn't mean no transitions (for instance), as that can be a
   presentation engine thing, if you really want it.
@@ -203,9 +206,6 @@ just a form of document. They tend to:
 This does have the advantage that the slide text can be exported in other
 ways - for instance, as a simple linear document.
 
-the thing in docutils and suchlike
-----------------------------------
-
 Docutils: rst2s5
 ----------------
 
@@ -243,7 +243,7 @@ of Bruno Renie’s `HTML5Translator`_." (that last link may or may not be correc
 Demo is at https://pythonhosted.org/rst2slides/#1, demo source code at
 https://pythonhosted.org/rst2slides/index.rst
 
-.. _`HTML Slideshow`: https://www.ravelrumba.com/blog/html5-slideshow/
+.. _`HTML5 Slideshow`: https://www.ravelrumba.com/blog/html5-slideshow/
 .. _`HTML5Translator`: https://pastebin.com/A6mMe2C5
 
 It's on Pypi, https://pypi.org/project/rst2slides/, but the homepage link is
@@ -494,12 +494,9 @@ comments for notes? Need to check.)
 Pygments or what?
 
 
------------
-
-
---------
 
 Links
+=====
 
 * https://docutils.sourceforge.io/docs/user/slide-shows.html Easy Slide Shows
   With reST & S5 - Docutils
