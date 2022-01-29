@@ -275,27 +275,13 @@ Eric Meyer.
 
 .. _S5: http://meyerweb.com/eric/tools/s5/
 
-* Good support for reStructuredText (!)
-* Top level titles delimit slides
-* Incremental list display
-* Can enable progress display in a footer
-* ``.. class:: handout`` directive for handouts (not shown in slideshow, shown
-  when printing or viewing in outline mode)
-* can control relative text size, colours, and various other things
-* The example themes all feel a bit "heavy" to me, but at least they assume
-  decent size text (**nb** check that claim)
-* (Documentation by David Goodger, so it's good. And indeed, the documentation
-  can *be* a slide show)
-
-I'd forgotten how sophisticated this system actually is - now I'm feeling nostalgic!
-
-But does it do code highlighting?
-
 rst2s5 characteristics
 ----------------------
 
 * slides separated by titles
-* code examples don't have syntax highlighting (**check**)
+* excellent support for reStructuredText (!)
+* lots of extra features, including incremental list display
+* **BUT** no syntax highlighting
 
 rst2s5 demo
 -----------
@@ -303,35 +289,34 @@ rst2s5 demo
 DEMO at https://docutils.sourceforge.io/docs/user/slide-shows.s5.html
 is the actual documentation page as slides - perhaps a bit long.
 
+rst2s5 reprise
+--------------
+
+I'd forgotten how sophisticated this system actually is - I'm feeling nostalgic!
+
+But the lack of syntax hightlighting for code is a problem,
+
+and the styles feel old-fashioned.
+
 landslide
 ---------
 
-https://github.com/adamzap/landslide - edited in 2020
+https://github.com/adamzap/landslide
 
-Supports Python 3
+Builds off of Google's html5slides_ template.
 
-Landslide generates a slideshow using from markdown, ReST, or textile. It
-builds off of Google's html5slides_ template.
+Generates a slideshow from markdown, ReST, or textile.
 
 .. _html5slides: https://code.google.com/archive/p/html5slides/
 
-Using reStructuredText:
-
-* Use ``--------`` (horizontal rule) to separate the slides
-* Headings become slide title (the first heading in a slide is level 1)
-* ``.. code-block:: <language>`` directive for code
-
-Not clear how to do presenter notes in reStructuredText (if it's possible - I
-don't think it is).
-
-Main page uses markdown for examples.
+Last commit in 2020
 
 landslide characteristics
 -------------------------
 
-* slides separated by
-* code examples
-* notes
+* slides separated by ``----``
+* syntax highlighting for code
+* definitely more oriented toward markdown
 
 landslide demo
 --------------
@@ -343,14 +328,7 @@ hovercraft!
 
 https://hovercraft.readthedocs.io/en/latest/index.html
 
-https://github.com/regebro/hovercraft - edited in 2021
-
-.. note:: the sources for the example slideshow are on branch ``gh-pages`` at
-          https://github.com/regebro/hovercraft/, that is, at
-          https://github.com/regebro/hovercraft/tree/gh-pages
-
-Demo at https://regebro.github.io/hovercraft/#/step-1 - which shows off its
-features rather well.
+https://github.com/regebro/hovercraft
 
 Hovercraft! is a tool to make `impress.js`_ presentations from
 reStructuredText.
@@ -362,37 +340,25 @@ reStructuredText.
 
 .. _`impress.js`: https://github.com/impress/impress.js
 
+Last commit in 2021
 
-Makefile::
-
-    .PHONY: show
-    show:
-        echo 'Go to http://localhost:8000 to see the slides'
-        hovercraft quotes.rst
-
-runs the slideshow live from the reStructuredText
-
-*or**::
-
-    .PHONY: slides
-    slides:
-        hovercraft quotes.rst slides
-
-to make an HTML version.
-
-* file:///Users/tibs/Sync/30.Tibs/33.Talks/python-history/slides/index.html#/step-1
 
 hovercraft! characteristics
 ---------------------------
 
-* slides separated by
-* code examples
-* notes
+* slides separated by ``----``
+* syntax highlighting
+* support for notes
+* "live presentation" mode (simple server)
 
 hovercraft! demo
 ----------------
 
 DEMO at https://regebro.github.io/hovercraft/#/step-1
+
+I used it very simply in my `An amble through the history of Python`__
+
+__ https://github.com/tibs/python-history
 
 rst2html5
 ---------
@@ -402,7 +368,7 @@ https://github.com/marianoguerra/rst2html5
     transform restructuredtext documents to html5 + twitter's bootstrap css,
     deck.js or reveal.js
 
-Last significant activity on the repository in 2017
+Last significant commit in 2017, but minor documentation fixes since.
 
 General purpose tool that can has options to help with slide production.
 
