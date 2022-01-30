@@ -25,14 +25,14 @@ albeit using their own styling (which is occasionally a bit odd). If you want
 to see the original reStructuredText source, you have to click on the "Raw"
 link at the top of the file's page.)
 
-The 16x9 aspect ratio slides are `<rst-slides-16x9.pdf>`_ and are stored here
-for convenience. The 4x3 aspect ratio slides are untested, and thus not uploaded.
+The PDF slides at 16x9 aspect ratio (`<rst-slides-16x9.pdf>`_) and 4x3
+(`<rst-slides-4x3.pdf>`_) are stored here for convenience.
 
 The PDF files may not always be as up-to-date as the source files, so check
 their timestamps.
 
 A good part of the talk is made up of demonstrations of slides produced
-using the different tools. At the moment those are not reproduced here...
+using the different tools. Most of those are links to other locations.
 
 The slides notes
 ~~~~~~~~~~~~~~~~
