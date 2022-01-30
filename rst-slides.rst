@@ -25,7 +25,6 @@ Making slides with reStructuredText
     Slides and accompanying material at https://github.com/tibs/reST-slides-talk
 
 
-
 What we shall cover
 -------------------
 
@@ -51,7 +50,15 @@ but there are lots of other programs out there, both free and not.
 Why use markup
 --------------
 
-...
+* Familiarity
+* Accessability
+* Content over presentation
+* Keep the design under control
+* Process with different tools and for different purposes
+* Version control
+* Toolchains
+
+We shall look at those in turn
 
 Familiarity
 -----------
@@ -85,6 +92,8 @@ Process with different tools
 ----------------------------
 
 The same (or very similar) text can be re-used in different tools.
+
+For instance, ``rst2html.py`` and ``rst2pdf`` and ``rsr2s5``
 
 Process for different purposes
 ------------------------------
@@ -149,7 +158,6 @@ Slide markup is generally very simple.
 Dedicated slide maker or general tool
 -------------------------------------
 
-...
 
 Slide specific tools
 --------------------
@@ -189,7 +197,7 @@ Top level title starts a new slide
 Output: HTML or PDF
 -------------------
 
-...
+
 
 Why HTML output
 ---------------
@@ -215,7 +223,7 @@ Possible problem: support for slide notes
 Tools I have used
 -----------------
 
-These are the tools I've used.
+These are the tools I've used, from about 2008 through today.
 
 * rst2s5_
 * landslide_
@@ -288,6 +296,7 @@ landslide characteristics
 
 * slides separated by ``----``
 * syntax highlighting for code
+* support reStructuredText, markdown and textile
 * definitely more oriented toward markdown
 
 landslide demo
@@ -307,8 +316,6 @@ Outputs HTML using `impress.js`_
     It's a presentation framework based on the power of CSS3 transforms and
     transitions in modern browsers and inspired by the idea behind prezi.com.
 
-(transitions can be left-to-right, pan up-and-down, rotate, zoom)
-
 .. _`impress.js`: https://github.com/impress/impress.js
 
 Last commit in 2021
@@ -318,8 +325,10 @@ hovercraft! characteristics
 ---------------------------
 
 * slides separated by ``----``
-* syntax highlighting
-* support for notes
+* syntax highlighting with pygments
+* notes with ``notes::`` directive
+* incremental list display
+* "swoopy"
 * "live presentation" mode (simple server)
 
 hovercraft! demo
@@ -345,8 +354,6 @@ Last significant commit in 2017, but minor documentation fixes since.
 
 (didn't seem to work when I tried to use it - probably a docutils version problem)
 
-General purpose tool that can also provide slides using various mechanisms.
-
 **Note:** Not to be confused with ``rst2html5`` at https://foss.heptapod.net/doc-utils/rst2html5
 
 rst2html5 characteristics
@@ -362,6 +369,8 @@ rst2html5 demo
 
 DEMO using reveal.js at http://marianoguerra.github.io/rst2html5/output/reveal.html#/
 
+But remember, the tool wasn't working for me.
+
 pandoc and beamer (and LaTeX)
 -----------------------------
 
@@ -371,6 +380,17 @@ Pandoc is a tool for converting between markup formats. It can output a
 variety of slide formats.
 
 Beamer is a LaTeX class for producing slides and presenations.
+
+Pandoc is well maintained, as are TeX/LaTeX, and beamer is a standard resource.
+
+pandoc slide outputs
+--------------------
+
+PDF using LaTeX beamer - the only one I've explored
+
+HTML using S5, DZSlides, Slidy, Slideous, or reveal.js
+
+Microsoft Powerpoint
 
 pandoc and beamer characteristics
 ---------------------------------
@@ -399,15 +419,6 @@ pandoc and beamer demo
 ----------------------
 
 DEMO using my Redis talk, https://github.com/tibs/redis-talk/blob/master/redis-slides-16x9.pdf
-
-pandoc slide outputs
---------------------
-
-PDF using LaTeX beamer - the only one I've explored
-
-HTML using S5, DZSlides, Slidy, Slideous, or reveal.js
-
-Microsoft Powerpoint
 
 rst2pdf
 -------
@@ -440,8 +451,8 @@ rst2pdf notes
 I customise my slides slightly, in particular to change the spacing
 around list items, and also to provide 4x3 and 16x9 layouts.
 
-I need to contribute these examples back to the project, and also write some
-more documentation on making slides with rst2pdf.
+    I need to contribute these examples back to the project, and also write
+    some more documentation on making slides with rst2pdf.
 
 I have observed that it can sometimes generate an extra blank slide if the
 preceding slide gets too full. I need to investigate this.

@@ -39,6 +39,10 @@ The slides notes
 
 There are also notes for the slides.
 
+  (The slide notes were used in deciding what should go into the slides,
+  but have not yet been udpdated to act as stand-alone notes. I hope to
+  do that soon.)
+
 The sources for the notes are in `<rst-slide-notes.rst>`_
 
 (Note that github will present the ``.rst`` files in rendered form as HTML,
