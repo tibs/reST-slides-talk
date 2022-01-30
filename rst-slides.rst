@@ -31,9 +31,9 @@ What we shall cover
 
 * Traditional tools
 * Why use markup (and why not)
-* Why reStructuredText
+* Why reStructuredText (and why not)
 * HTML versus PDF
-* Tools I've used (mostly) and examples
+* Tools I've used and examples
 * Recommendations
 
 Traditional tools
@@ -50,6 +50,8 @@ but there are lots of other programs out there, both free and not.
 
 Why use markup
 --------------
+
+...
 
 Familiarity
 -----------
@@ -101,37 +103,38 @@ Plus github/gitlab/etc., are a good sharing mechanism
 Toolchains
 ----------
 
-* Makefile, etc., to prepare the slides
-* Templating to allow modification of the text
+Makefile, etc., to prepare the slides
+
+Templating to allow modification of the text
 
   (for instance, cog_ to allow insertion of code results)
 
-* Searchable
+Searchable
 
 .. _cog: https://github.com/nedbat/cog
 
 Why not use markup
 ------------------
 
-* If the graphics are the point of the slide
+If the graphics are the point of the slide
 
-* If complicated layout is necessary
+If complicated layout is necessary
 
-* If the company mandated style can't be reproduced
+If the company mandated style can't be reproduced
 
-* If GUI slide making is your strong point, and typing is not
+If GUI slide making is your strong point, and typing is not
 
 Why use reStructuredText
 ------------------------
 
-* Familiarity - it's what I use for other tasks
+Familiarity - it's what I use for other tasks
 
-* Sweetspot of simplicity / power
+Sweetspot of simplicity / power
 
-  Although slides may not need all its capabilities, and those are
-  there when I do need them.
+  Although slides may not need or be able to use all
+  of reStructuredText's capabilities
 
-* Well defined, reasonable error handling
+Well defined, reasonable error handling
 
 
 Why not use reStructuredText
@@ -145,6 +148,8 @@ Slide markup is generally very simple.
 
 Dedicated slide maker or general tool
 -------------------------------------
+
+...
 
 Slide specific tools
 --------------------
@@ -171,15 +176,20 @@ ways - for instance, as a simple linear document.
 How slides are separated
 ------------------------
 
-* Horizontal line separates slides: ``----``
+Horizontal line (``----``) separates slides
 
   Typical for dedicated tools
 
-* Top level title starts a new slide
+Top level title starts a new slide
 
   Typical for general tools.
 
   The document title / first slide is generally special.
+
+Output: HTML or PDF
+-------------------
+
+...
 
 Why HTML output
 ---------------
@@ -188,6 +198,19 @@ Allows using a browser, and taking advantage of that.
 
 Generally includes either Javascript or HTML5 support, so allows use of
 special effects developed by other slide tools.
+
+Why PDF output
+--------------
+
+One file for a slide set.
+
+Portable - although less of an issue now HTML, etc., support is standard.
+
+Font size and layout on the slide is predictable.
+
+Printed output will look like the slides.
+
+Possible problem: support for slide notes
 
 Tools I have used
 -----------------
@@ -210,59 +233,6 @@ These are the tools I've used.
 .. _rst2pdf: https://rst2pdf.org/
 
 
-Not used: Hieroglyph and Sphinx
--------------------------------
-
-Hieroglyph_ a sphinx extension, last commit 2020
-
-.. _Hieroglyph: https://hieroglyph.readthedocs.io/en/latest/
-
-This might be useful if the slide sources are to be kept within an existing
-sphinx directory structure.
-
-E. Dunham's 2015 article '`hieroglyph2beamer with Pandoc`__ shows how to use
-pandoc and LaTeX to get better PDF slides.
-
-__ https://edunham.net/2015/03/05/hieroglyph2beamer_with_pandoc.html
-
-hieroglyph characteristics
---------------------------
-
-* generates HTML
-* slides separated by titles
-* all the power of sphinx
-* can mix slides in with normal text
-* includes its own presentation console
-
-Not used: rst2slides
---------------------
-
-I've never used this.
-
-    "It uses Rob Flaherty’s Lightweight `HTML5 Slideshow`_ as template, and
-    most of Bruno Renie’s `HTML5Translator`_."
-
-.. _`HTML5 Slideshow`: https://www.ravelrumba.com/blog/html5-slideshow/
-.. _`HTML5Translator`: https://pastebin.com/A6mMe2C5
-
-rst2slides characteristics
---------------------------
-
-* generates HTML
-* slides separated by titles
-* incremental lists
-* syntax hightlighting with pygments
-
-rst2slides demo
----------------
-
-Although I've not used it, the demo is quite nice.
-
-DEMO at https://pythonhosted.org/rst2slides/#1
-
-The tools I have used
----------------------
-
 rst2s5
 ------
 
@@ -270,7 +240,7 @@ Comes with Docutils
 
 https://docutils.sourceforge.io/docs/user/slide-shows.html
 
-Outputs HTML for use with S5_, a "Simple Standards-based Slide Show System" by
+Outputs HTML that uses S5_, a "Simple Standards-based Slide Show System" by
 Eric Meyer.
 
 .. _S5: http://meyerweb.com/eric/tools/s5/
@@ -289,6 +259,8 @@ rst2s5 demo
 DEMO at https://docutils.sourceforge.io/docs/user/slide-shows.s5.html
 is the actual documentation page as slides - perhaps a bit long.
 
+Also there's my talk on reStructuredText, from 2009
+
 rst2s5 reprise
 --------------
 
@@ -303,7 +275,7 @@ landslide
 
 https://github.com/adamzap/landslide
 
-Builds off of Google's html5slides_ template.
+Ouptuts HTML, building off Google's html5slides_ template.
 
 Generates a slideshow from markdown, ReST, or textile.
 
@@ -330,8 +302,7 @@ https://hovercraft.readthedocs.io/en/latest/index.html
 
 https://github.com/regebro/hovercraft
 
-Hovercraft! is a tool to make `impress.js`_ presentations from
-reStructuredText.
+Outputs HTML using `impress.js`_
 
     It's a presentation framework based on the power of CSS3 transforms and
     transitions in modern browsers and inspired by the idea behind prezi.com.
@@ -368,7 +339,11 @@ https://github.com/marianoguerra/rst2html5
     transform restructuredtext documents to html5 + twitter's bootstrap css,
     deck.js or reveal.js
 
+Outputs HTML, using a variety of different presentation techniques.
+
 Last significant commit in 2017, but minor documentation fixes since.
+
+(didn't seem to work when I tried to use it - probably a docutils version problem)
 
 General purpose tool that can also provide slides using various mechanisms.
 
@@ -386,19 +361,6 @@ rst2html5 demo
 --------------
 
 DEMO using reveal.js at http://marianoguerra.github.io/rst2html5/output/reveal.html#/
-
-Why PDF?
---------
-
-One file for a slide set.
-
-Portable - although less of an issue now HTML, etc., support is standard.
-
-Font size and layout on the slide is predictable.
-
-Printed output will look like the slides.
-
-Possible problem: support for slide notes
 
 pandoc and beamer (and LaTeX)
 -----------------------------
@@ -483,6 +445,29 @@ more documentation on making slides with rst2pdf.
 
 I have observed that it can sometimes generate an extra blank slide if the
 preceding slide gets too full. I need to investigate this.
+
+Not used: Hieroglyph and Sphinx
+-------------------------------
+
+Hieroglyph_ a sphinx extension
+
+.. _Hieroglyph: https://hieroglyph.readthedocs.io/en/latest/
+
+Outputs HTML. I've not tried it.
+
+Last commit 2020
+
+This might be useful if the slide sources are to be kept within an existing
+sphinx directory structure.
+
+hieroglyph characteristics
+--------------------------
+
+* generates HTML
+* slides separated by titles
+* all the power of sphinx
+* can mix slides in with normal text
+* includes its own presentation console
 
 What would I recommend?
 -----------------------

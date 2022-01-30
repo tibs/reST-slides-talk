@@ -8,7 +8,7 @@ obviously some things missing.
 ``~/talks`` directory
 
 * 2008-11 ``Slides/01.from_future.short``, lightning talk, rst2s5
-* 2008-11 ``Slides/03.pyrex``, lightning talk, Nov 2008
+* 2008-11 ``Slides/03.pyrex``, lightning talk, Nov 2008, rst2s5
 * 2009-01 ``Slides/02.reStructuredText``, draft, rst2s5
 * 2009-03 ``Slides/01.from_future``, rst2s5
 * 2010 ``Slides/04.kbus1``, CamPUG (canned demonstration, "A simple intro to using KBUS"), rst2s5.
