@@ -175,7 +175,7 @@ Some tools are generic, but can produce slides because slides are
 just a form of document. They tend to:
 
 1. use headings as slide delimitors
-2. only understand "normal" reStructuredText (**check this!**)
+2. only understand "normal" reStructuredText
 
 This does have the advantage that the slide text can be exported in other
 ways - for instance, as a simple linear document.
@@ -265,7 +265,7 @@ rst2s5 demo
 -----------
 
 DEMO at https://docutils.sourceforge.io/docs/user/slide-shows.s5.html
-is the actual documentation page as slides - perhaps a bit long.
+is the actual documentation page as slides.
 
 Also there's my talk on reStructuredText, from 2009
 
@@ -379,7 +379,7 @@ https://pandoc.org/ and https://pandoc.org/MANUAL.html#slide-shows
 Pandoc is a tool for converting between markup formats. It can output a
 variety of slide formats.
 
-Beamer is a LaTeX class for producing slides and presenations.
+Beamer is a LaTeX class for producing slides and presentations.
 
 Pandoc is well maintained, as are TeX/LaTeX, and beamer is a standard resource.
 
